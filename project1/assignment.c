@@ -70,11 +70,15 @@ void edititem() {
 			printf("File Not Function!");
 			exit(-1);
 		}
-		printf("Enter Item Code That Need To Edit:");
+		printf("Enter Item Code That Need To Edit:\n");
 		gets(target);
+		int testcounter=0;
 		while (fscanf(edit, "%[^#]# %[^#]# %lf %d %d %d", &st.itemcode, &st.itemname, &st.itemprice, &st.itemqty, &st.reorder, &st.minlvl) != EOF)
 		{
+			testcounter++;
+			printf("%d. %s %s strcmp(target,st.itemcode) evaluates to %s ----\n", testcounter, target, st.itemcode, strcmp(target,st.itemcode)==0);
 			if (strcmp(target,st.itemcode)==0) {
+				printf("strcmp(target,st.itemcode)==0 is true");
 				b = 1;
 				printf("*****  Record Found  *****\n");
 				printf("Item Name:%s\n Item Price:%.2lf\n Item Quantity:%d\n Item Reorder Quantity:%d\n Item Minimum Level:%d\n", st.itemname, st.itemprice, st.itemqty, st.reorder, st.minlvl);
