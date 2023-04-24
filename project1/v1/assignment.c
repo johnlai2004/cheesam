@@ -71,9 +71,16 @@ void edititem() {
 			exit(-1);
 		}
 		printf("Enter Item Code That Need To Edit:");
-		gets(target);
+	rewind(stdin);
+	scanf("%s", &target);
+	int yy = 0;
 		while (fscanf(edit, "%[^#]# %[^#]# %lf %d %d %d", &st.itemcode, &st.itemname, &st.itemprice, &st.itemqty, &st.reorder, &st.minlvl) != EOF)
 		{
+			yy++;
+			printf("yy=%d [[%s]] ++%s++++\n", yy, target, st.itemcode);
+			if(yy > 5) {
+				exit(-1);
+			}
 			if (strcmp(target,st.itemcode)==0) {
 				b = 1;
 				printf("*****  Record Found  *****\n");
