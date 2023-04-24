@@ -8,5 +8,7 @@ extern bool record_exists(int item_id) {
 	return true;
 }
 
-extern bool valid_new_object(int item_to_add) {
+extern bool valid_new_object(item st) {
+
+   if (st.itemprice < 1 || st.itemprice > 30) {
 }
